@@ -37,7 +37,7 @@ const unique = () => {
 
 const onCopyRequested = (msg, sendResponse) => {
 	const foundLinks = getLinksInSelection()
-		.map(link => link.href + "\t" + link.innerText )
+		.map(link => link.href + "\t" + link.innerText.trim() )
 		.filter(unique());
 
 	if (foundLinks.length > 0) {

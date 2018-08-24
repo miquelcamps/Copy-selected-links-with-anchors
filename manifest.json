@@ -1,0 +1,48 @@
+{
+
+	"manifest_version": 2,
+
+	"applications": {
+		"gecko": {
+		  "id": "jid1-vs5odTmtIydjMg@jetpack"
+		}
+	  },
+
+	"name": "Copy selected links with anchors",
+	"short_name": "CSL",
+	"version": "2.1.1",
+	"description": "Right-click selected text to copy the URL and anchors of any links it contains.",
+	"author": "Marnick Leau + Miquel Camps",
+	"icons": {
+		"16": "/images/icon-16.png",
+		"48": "/images/icon-48.png",
+		"128": "/images/icon-128.png"
+	},
+
+	"options_ui": {
+		"page": "/options/options.html",
+		"chrome_style": true
+	},
+
+	"content_scripts": [
+		{
+			"matches": ["*://*/*", "file:///*"],
+			"js": ["/content/content.js"],
+			"run_at": "document_end",
+			"all_frames": true
+		}
+	],
+
+	"background": {
+		"page": "/background/background.html",
+		"persistent": true
+	},
+
+	"permissions": [
+		"notifications",
+		"clipboardWrite",
+		"contextMenus",
+		"tabs",
+		"storage"
+	]
+}
